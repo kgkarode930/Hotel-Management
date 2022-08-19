@@ -1,0 +1,164 @@
+doctype html
+head
+  link(href='static/css/re_room_booking.css' rel='stylesheet' type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+body(onload='initClock()')
+  div
+    ul
+      li
+        h1.heading GRAND HOTEL
+      li(style='float:right')
+        .datetime
+          .date
+            span#dayname Day
+            |, 
+            span#month Month
+            |, 
+            span#daynum 00
+            | 
+            span#year Year
+          .time
+            span#hour 00
+            |  :
+            span#minutes 00
+            |  :
+            span#seconds 00
+            span#period AM
+  nav.tm-nav
+    #navbar.tm
+      ul
+        li.tm-list
+          a(href='Re_home') Home
+        li.tm-list
+          a(href='Re_room_booking') Room Booking
+        li.tm-list
+          a(href='Re_rooms') Rooms
+        li.tm-list
+          a(href='Re_employee_registration') Register Employees
+        li.tm-list
+          a(href='Re_contact_employees') Contact Staff
+        li.tm-list
+          a(href='Re_account') Account
+  .container
+    form(action='send_guest_data',method='post')
+      h1.formheading Room Booking  
+      hr
+      label(for='room_number')
+        |Room Number
+      input#room_number(type='text', placeholder='Room Number', name='room_number', required)
+      label(for='fname')
+        |First Name
+      input#guest_fname(type='text', placeholder='First name', name='fname', required)
+      br
+      label(for='lname')
+        |Last Name
+      input#guest_lname(type='text', placeholder='Last Name', name='lname', required)
+      br
+      label(for='address')
+        |Address
+      input#guest_address(type='text' name='address', placeholder='Address', required)
+      br
+      label(for='phonenumber')
+        |Phone Number
+      input#guest_phone_number(type='text', placeholder='Phone Number', name='phonenumber', required)
+      br
+      label(for='email')
+        |E-mail
+      input#guest_email(type='text', placeholder='Email', name='email', required)
+      br
+      input(type='text' name='room_type' list='room_type' placeholder="Select the Room Type")
+      datalist#room_type
+        option(value=4500) Deluxe Suite
+        option(value=6000) Premium Suite 
+        option(value=7500) Supreme Suite
+      br
+      label(for='Checkin') Check In:
+      input#checkin(type='date' name='checkin')
+      br
+      label(for='Checkout') Check Out:
+      input#checkout(type='date' name='checkout')
+      br
+      input#number_of_rooms(type='number' name='number_of_rooms' min='1' max='10' placeholder="Rooms")
+      br
+      input#guest_adults(type='number' name='guest_adults' min='1' max='10' placeholder="Adults")
+      br
+      input#guest_child(type='number' name='guest_child' min='0' max='10' placeholder="Children")
+      br
+      label(for='ID_proof') ID Proof    
+      input#ID_proof(type='file' name='ID_proof' placeholder='Browse' required)
+      br
+      label(for='password')
+        |Password
+      input#guest_password(type='password', placeholder='Enter Password', name='password', required)
+      br
+      label(for='password-repeat')
+        |Confirm Password
+      input#guest_cfn_password(type='password', placeholder='Repeat Password', name='password-repeat', onkeyup='check();', required)
+      br
+      
+      #message.alert
+        span.closebutton(onclick="this.parentElement.style.display='none';") &times;
+        |  
+        strong Warning!
+        |  Your Password doesn&apos;t match the Previous Password
+      hr
+      button.registerbtn(type='submit') Book
+// Script
+script.
+  // sticky navbar
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  }
+  function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  //password validation
+  var check = function() {
+  if (document.getElementById('guest_password').value !=
+  document.getElementById('guest_cfn_password').value) {
+  document.getElementById('message').style.visibility='visible';
+  }
+  else{
+  document.getElementById('message').style.visibility='hidden';
+  }
+  }
+

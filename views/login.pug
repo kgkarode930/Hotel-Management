@@ -1,0 +1,182 @@
+doctype html
+head 
+  title Home
+  link(href='static/css/login.css' rel='stylesheet' type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+body(onload="initClock()")  
+  div
+    ul
+      li
+        h1.heading GRAND HOTEL
+      li(style='float:right')
+        .datetime
+          .date
+            span#dayname Day
+            |, 
+            span#month Month
+            |, 
+            span#daynum 00
+            | 
+            span#year Year
+          .time
+            span#hour 00
+            |  :
+            span#minutes 00
+            |  :
+            span#seconds 00
+            span#period AM
+  //- tabs   
+  button#defaultOpen.tablink(onclick="openStatus('Receptionist', this, '#10101E')") Receptionist
+  button.tablink(onclick="openStatus('Guest', this, '#10101E')") Guest
+  button.tablink(onclick="openStatus('RestaurantManager', this, '#10101E')") Restaurant Manager
+  button.tablink(onclick="openStatus('Housekeeper', this, '#10101E')") Housekeeper
+  //- tabs definition
+  #Receptionist.tabcontent
+    .box
+      img(src='static/images/Receptionist.jpg')
+      .container
+        h1.title Receptionist
+        form(action='receptionist' method='post')
+          .row
+            .col-25
+              label(for='Id') ID
+            .col-75
+              input#ID(type='text' name='Id' placeholder='XXXXXXXX')
+          .row
+            .col-25
+              label(for='name') Name
+            .col-75
+              input#ID(type='text' name='name' placeholder='Name')
+          .row
+            .col-25
+              label(for='psw') Password
+            .col-75
+              input#psw(type='password' name='psw' placeholder='Password')
+          .row
+            .col-25
+            .col-75
+              input(type='submit' value='Login')
+  #Guest.tabcontent
+    .box
+      img(src='static/images/Guest.jpg')
+      .container
+        h1.title Guest
+        form(action='guest' method='post')
+          .row
+            .col-25
+              label(for='Id') ID
+            .col-75
+              input#Id(type='text' name='Id' placeholder='Guest ID')
+          .row
+            .col-25
+              label(for='pswd') Password
+            .col-75
+              input#password(type='password' name='pswd' placeholder='Password')
+          .row
+            .col-25
+            .col-75
+              input(type='submit' value='Login')
+  #RestaurantManager.tabcontent
+    .box
+      img(src='static/images/Restaurant Manager.jpg')
+      .container
+        h1.title Restaurant Manager
+        form(action='manager' method='post')
+          .row
+            .col-25
+              label(for='Id') ID
+            .col-75
+              input#ID(type='text' name='Id' placeholder='XXXXXXXX')
+          .row
+            .col-25
+              label(for='name') Name
+            .col-75
+              input#ID(type='text' name='name' placeholder='Name')
+          .row
+            .col-25
+              label(for='psw') Password
+            .col-75
+              input#psw(type='password' name='psw' placeholder='Password')
+          .row
+            .col-25
+            .col-75
+              input(type='submit' value='Login')
+  #Housekeeper.tabcontent
+    .box
+      img(src='static/images/Housekeeper.jpg')
+      .container
+        h1.title Housekeeper
+        form(action='house_keeper',method='post')
+          .row
+            .col-25
+              label(for='Id') ID
+            .col-75
+              input#ID(type='text' name='Id' placeholder='XXXXXXXX')
+          .row
+            .col-25
+              label(for='name') Name
+            .col-75
+              input#ID(type='text' name='name' placeholder='Name')
+          .row
+            .col-25
+              label(for='psw') Password
+            .col-75
+              input#psw(type='password' name='psw' placeholder='Password')
+          .row
+            .col-25
+            .col-75
+              input(type='submit' value='Login')
+  //- Script
+  script.
+
+    function openStatus(statusName,elmnt,color) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(statusName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+    }
+    document.getElementById("defaultOpen").click();
+    
+    function updateClock(){
+    var now = new Date();
+    var dname = now.getDay(),
+    mo = now.getMonth(),
+    dnum = now.getDate(),
+    yr = now.getFullYear(),
+    hou = now.getHours(),
+    min = now.getMinutes(),
+    sec = now.getSeconds(),
+    pe = "AM";
+    if(hou >= 12){
+      pe = "PM";
+    }
+    if(hou == 0){
+      hou = 12;
+    }
+    if(hou > 12){
+      hou = hou - 12;
+    }
+    Number.prototype.pad = function(digits){
+    for(var n = this.toString(); n.length < digits; n = 0 + n);
+      return n;
+    }
+    var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+    var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+    var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+    for(var i = 0; i < ids.length; i++)
+      document.getElementById(ids[i]).innerHTML = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval(updateClock, 1000);
+    }

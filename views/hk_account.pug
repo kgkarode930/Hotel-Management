@@ -1,0 +1,120 @@
+doctype html
+html
+  head
+    link(href='static/css/hk_account.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Gilda Display', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body(onload='initClock()')
+    div
+      ul
+        li
+          h1.heading GRAND HOTEL
+        li(style='float:right')
+          .datetime
+            .date
+              span#dayname Day
+              | ,
+              span#month Month
+              span#daynum 00
+              | ,
+              span#year Year
+            .time
+              span#hour 00
+              | :
+              span#minutes 00
+              | :
+              span#seconds 00
+              span#period AM
+    nav.tm-nav
+      #navbar.tm
+        ul
+          li.tm-list
+            a(href='hk_home') Home
+          li.tm-list
+            a(href='hk_contact_employees') Contact Staff
+          li.tm-list
+            a(href='hk_account') Account
+    .container
+      .row
+        h1(style='text-align:center') ACCOUNT
+        .vl
+          span.vl-innertext
+            img(src='static/images/Profile_Picture.png', alt='Profile')
+        .col
+          .card
+            h1 #{results[0].hk_name} - Housekeeper
+            h3 ID: #{results[0].hk_id} 
+            p.title Status: #{results[0].hk_status}
+            p.title Phone Number: #{results[0].hk_phone_number}
+            p.title Date of Birth: #{results[0].hk_Dob}
+            p.title #{results[0].hk_email}
+            p.title #{results[0].hk_address}
+        .col(style='float:right;')
+          h1 Reset your Password
+          form(action='/hk_reset', method='post')
+            input(type='password', placeholder='Old Password', name='oldpswd')
+            input(type='password', placeholder='New Password', name='pswd')
+            input(type='password', placeholder='Confirm Password')
+            input(type='submit', value='Proceed')
+    .bottom-container
+      .row
+        .col(style='width: 50%')
+          a#confirmLogout.btn(href='logout') Logout
+        .col(style='width: 50%')
+          a#confirmDeletion.btn(href='hkdelete') Delete My Account
+    // Script
+    script.
+      document
+        .getElementById("confirmLogout")
+        .addEventListener("click", function( e ){
+        if( ! confirm("Do you really want to Logout?") ){
+        e.preventDefault(); // ! => don't want to do this
+        } else {
+        //want to do this! => maybe do something about it?
+        alert('Logged Out');
+      }
+      });
+      document
+      .getElementById("confirmDeletion")
+      .addEventListener("click", function( e ){
+      if( ! confirm("Do you really want to Delete This Account?") ){
+      e.preventDefault(); // ! => don't want to do this
+      } else {
+      //want to do this! => maybe do something about it?
+      alert('Account Deleted');
+      }
+      });
+      function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+      mo = now.getMonth(),
+      dnum = now.getDate(),
+      yr = now.getFullYear(),
+      hou = now.getHours(),
+      min = now.getMinutes(),
+      sec = now.getSeconds(),
+      pe = "AM";
+      if(hou >= 12){
+      pe = "PM";
+      }
+      if(hou == 0){
+      hou = 12;
+      }
+      if(hou > 12){
+      hou = hou - 12;
+      }
+      Number.prototype.pad = function(digits){
+      for(var n = this.toString(); n.length < digits; n = 0 + n);
+      return n;
+      }
+      var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+      var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+      var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+      for(var i = 0; i < ids.length; i++)
+      document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+      }
+      function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+      }

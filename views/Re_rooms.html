@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<head>
+    <link href="../static/css/Re_home.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/css/swiper.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/css/Re_rooms.css" rel="stylesheet" type="text/css"/>
+    <script src="../static/js/Receptionisthomeswiper.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Gilda Display" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;display=swap" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body onload='initClock()'>
+    <ul>
+        <li>
+          <h1 class="heading">GRAND HOTEL</h1>
+        </li>
+        <li style="float:right">
+          <div class="datetime">
+            <div class="date"><span id="dayname">Day</span>, <span id="month">Month</span>, <span id="daynum">00</span> <span id="year">Year</span></div>
+            <div class="time"><span id="hour">00</span> :<span id="minutes">00</span> :<span id="seconds">00</span><span id="period">AM</span></div>
+          </div>
+        </li>
+    </ul>
+      <div class="tm-nav">
+        <div class="tm" id="navbar">
+        <ul>
+            <li class="tm-list"> <a href="Re_home">Home</a></li>
+            <li class="tm-list"><a href="Re_rooms">Rooms</a></li>
+            <li class="tm-list"><a href="Re_employee_registration">Register Employees</a></li>
+            <li class="tm-list"><a href="Re_contact_employees">Contact Staff</a></li>
+            <li class="tm-list"><a href="Re_account">Account</a></li>
+        </ul>
+        </div>
+      </div>
+
+    <div class="row">
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_8.jpg"></div>
+        <div class="card-text">Standard Room</div>
+        <div class="price-text">
+          <p>1-2 Occupancy</p>
+          <p>₹3200</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_4.jpg"></div>
+        <div class="card-text">Elite Room</div>
+        <div class="price-text">
+          <p>1-2 Occupancy</p>
+          <p>₹3999</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_1.jpg"></div>
+        <div class="card-text">Deluxe Room</div>
+        <div class="price-text">
+          <p>1-3 Occupancy</p>
+          <p>₹4500</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_2.jpg"></div>
+        <div class="card-text">Standard Double</div>
+        <div class="price-text">
+          <p>1-4 Occupancy</p>
+          <p>₹4000</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_3.jpg"></div>
+        <div class="card-text">Elite Double</div>
+        <div class="price-text">
+          <p>1-4 Occupancy</p>
+          <p>₹6500</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_7.jpg"></div>
+        <div class="card-text">Deluxe Double</div>
+        <div class="price-text">
+          <p>1-4 Occupancy</p>
+          <p>₹7500</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_6.jpg"></div>
+        <div class="card-text">Executive Suite</div>
+        <div class="price-text">
+          <p>1-2 Occupancy</p>
+          <p>₹8200</p>
+        </div>
+      </div></a>
+      <a href="#id01"><div class="card"  id="card" onclick="document.getElementById('id01').style.display='block'">
+        <div class="image"><img src="../static/Rooms_5.jpg"></div>
+        <div class="card-text">Medieval Suite</div>
+        <div class="price-text">
+          <p>1-2 Occupancy</p>
+          <p>₹10000</p>
+        </div>
+      </div></a> 
+    </div>
+
+
+<div id="id01" style="display: none">
+    <div class="container">
+        <form action="send_guest_data" method="post">
+          <h1 class="formheading"></h1>
+          <h1 class="formheading">Room Booking</h1>
+          <hr/>
+          <label for="number_room">Number of Rooms</label>
+          <input id="number_room" type="number" placeholder="Number of Rooms" name="number_room" required="required"/>
+          <label for="room_number">Room Number</label>
+          <input id="room_number" type="text" placeholder="Room Number" name="room_number" required="required"/>
+          <label for="fname">First Name</label>
+          <input id="guest_fname" type="text" placeholder="First name" name="fname" required="required"/><br/>
+          <label for="lname">Last Name</label>
+          <input id="guest_lname" type="text" placeholder="Last Name" name="lname" required="required"/><br/>
+          <label for="address">Address</label>
+          <input id="guest_address" type="text" name="address" placeholder="Address" required="required"/><br/>
+          <label for="phonenumber">Phone Number</label>
+          <input id="guest_phone_number" type="text" placeholder="Phone Number" name="phonenumber" required="required"/><br/>
+          <label for="email">E-mail</label>
+          <input id="guest_email" type="text" placeholder="Email" name="email" required="required"/><br/>
+          <label for="Checkin">Check In:</label>
+          <input id="checkin" type="date" name="checkin"/><br/>
+          <label for="Checkout">Check Out:</label>
+          <input id="checkout" type="date" name="checkout"/><br/>
+          <label for="password">Password</label>
+          <input id="guest_password" type="password" placeholder="Enter Password" name="password" required="required"/><br/>
+          <label for="password-repeat">Confirm Password</label>
+          <input id="guest_cfn_password" type="password" placeholder="Repeat Password" name="password-repeat" onkeyup="check();" required="required"/><br/>
+          <div class="alert" id="message"><span class="closebutton" onclick="this.parentElement.style.display='none';">&times;</span> <strong>Warning!</strong> Your Password doesn&apos;t match the Previous Password</div>
+          <hr/>
+          <button class="registerbtn" type="submit">Book</button>
+        </form>
+      </div>
+</div>
+
+<script>
+    function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  }
+</script>
+</body>

@@ -1,0 +1,196 @@
+doctype html
+head
+  link(href='../static/css/guest_home.css' rel='stylesheet' type='text/css')
+  link(href='../static/css/swiper.css' rel='stylesheet'  type='text/css')
+  script(src='../static/Javascript/Receptionisthomeswiper.js')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1') 
+body(onload='initClock()')
+  
+  
+  div
+    ul
+      li
+        h1.heading GRAND HOTEL
+      li(style='float:right')
+        .datetime
+          .date
+            span#dayname Day
+            |, 
+            span#month Month
+            |, 
+            span#daynum 00
+            | 
+            span#year Year
+          .time
+            span#hour 00
+            |  :
+            span#minutes 00
+            |  :
+            span#seconds 00
+            span#period AM
+  nav.tm-nav
+    #navbar.tm
+      ul
+        li.tm-list 
+          a(href='guest_home') Home
+        li.tm-list
+          a(href='restaurant') Restaurant
+        li.tm-list
+          a(href='services_contact') Services Contact
+        li.tm-list
+          a(href='guest_account') Account
+  .bgimg-1
+    .caption
+      span.border CAREER IN HOTEL MANAGEMENT
+  div(style='color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;')
+    h3 What is Hotel management?
+    p(style='font: 400 15px/1.8 "Lato", sans-serif; color: #777;')
+      | At its core, hotel management involves operating and overseeing a specific hotel location. A hotel receptionist is typically responsible for ensuring the property runs smoothly, and he or she must work closely with other departments (housekeeping, marketing, events, security, etc.) to report on overall performance.
+      | The specific duties of a hotel receptionist ultimately depend on the size of the hotel and any expectations from the owner(s). However, their overarching responsibilities require them to make sure the many hotel operations are cohesive and provide a positive experience for every guest.
+  .bgimg-2
+    .caption
+      span.border(style='background-color:transparent;font-size:25px;color: #f7f7f7;') MEET NEW PEOPLE
+  div(style='position:relative;')
+    div(style='color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;')
+      p
+        | Hotel Receptionist meet new people every day. From the staff and vendors to returning and first-time guests, this role has a major social component. If you love to interact with people, hear their stories, and help make their experience during their stay one they will not soon forget, a career in hotel management would be ideal for you.
+  .bgimg-3
+    .caption
+      span.border(style='background-color:transparent;font-size:25px;color: #f7f7f7;') TANGIBLE JOB SATISFACTION
+  div(style='position:relative;')
+    div(style='color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;')
+      p
+        | Every occupation is unique, but only a few actually empower a professional to experience job satisfaction in a tangible way. While there are certainly highs and lows as a hotel receptionist, you are being thanked daily and the gratitude of guests is explicitly directed toward your work. This feedback gives purpose to your passion and helps you be an even better receptionist.
+  .bgimg-1
+    .caption
+      span.border GRAND HOTEL-THE BEST PLACE FOR YOU!
+  section.spacer
+    .testimonial-section
+      .testi-user-img
+        .swiper-container.gallery-thumbs
+          .swiper-wrapper
+            .swiper-slide
+              img.u3(src='static/images/Person1.jpg' alt='Employee')
+            .swiper-slide
+              img.u1(src='static/images/Person2.jpg' alt='Employee')
+            .swiper-slide
+              img.u2(src='static/images/Person3.jpg' alt='Employee')
+            .swiper-slide
+              img.u4(src='static/images/Person4.jpg' alt='Employee')
+      .user-saying
+        .swiper-container.testimonial
+          .swiper-wrapper
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;One of the most enriching experiences of my life.
+                  | Thank you to the staff for being so encouraging and nurturing.&ldquo;
+                .name -Rajesh Verma-
+                .designation Ex-Hotel chief Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;Staff and management are top notch.
+                  | They care about their people I had a lot of fun while doing my job.
+                  | I would gladly work there again, if I was in the area.&ldquo;
+                .name -Shefali Sharma-
+                .designation Ex-Head Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;This is best and biggest Hotel I would
+                  | have ever worked for. Top Knotch Staff and facilities,
+                  | Gained worthwhile experience&ldquo;
+                .name -Rahul Jain-
+                .designation Ex-Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;Leadership team provides great support and guidance when needed,
+                  | yet lets the teams take the lead and do what they do best.
+                  | Employee programs and benefits are competitive.&ldquo;
+                .name -Tanya Shekhawat-
+                .designation Hotel Management Intern
+          .swiper-pagination.swiper-pagination-white
+// Script
+script.
+  var galleryThumbs = new Swiper('.gallery-thumbs', {
+  effect: 'coverflow',
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: '2',
+  coverflowEffect: {
+  rotate: 0,
+  stretch: 0,
+  depth: 50,
+  modifier: 6,
+  slideShadows : false,
+  },
+  });
+  var galleryTop = new Swiper('.swiper-container.testimonial', {
+  speed: 400,
+  spaceBetween: 50,
+  autoplay: {
+  delay: 3000,
+  disableOnInteraction: false,
+  },
+  direction: 'vertical',
+  pagination: {
+  clickable: true,
+  el: '.swiper-pagination',
+  type: 'bullets',
+  },
+  thumbs: {
+  swiper: galleryThumbs
+  }
+  });
+  function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  }

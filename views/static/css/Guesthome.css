@@ -1,0 +1,124 @@
+body {
+    font-family: 'Gilda Display' ;
+    margin: 0% ;
+    background-color: rgb(83, 47, 22);
+    background-color: #10101E;
+    }
+  
+h1{
+    text-transform: uppercase;
+    font-family: 'Gilda Display' ;
+    letter-spacing: 3px;
+  }
+  
+.heading{
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+    color:white; 
+    margin-left: 20px; 
+  } 
+
+ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+li {
+      float: left;
+    }
+    
+.datetime{
+            color: #fff;
+            width: 200px;
+            padding: 15px 10px;
+            border: 3px solid #555;
+            border-radius: 5px;
+            transition: 0.5s;
+            transition-property: background, box-shadow;
+            }
+            
+.datetime:hover{
+              background: #555;
+              box-shadow: 0 0 30px rgb(0, 0, 0);
+            }
+            
+.date{
+        font-size: 10px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+            
+.time{
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+            
+.time span:not(:last-child){
+              position: relative;
+              margin: 0 6px;
+              font-weight: 600;
+              text-align: center;
+              letter-spacing: 3px;
+            }
+            
+.time span:last-child{
+              font-size: 15px;
+              font-weight: 600;
+              text-transform: uppercase;
+              padding: 0 5px;
+              border-radius: 3px;
+            }
+
+
+
+.tm-nav{
+        width: 100%;
+        background-color: #555;
+        display: block;
+        font-family: 'Gilda Display'; 
+        }
+
+.tm{
+    width: 100%;
+}
+             
+.tm-nav div{
+            display: table;
+            }
+             
+.tm-nav div ul li{
+                 display:inline-block;  
+                 font-size: 17px;  
+             }
+
+.tm-list{
+    text-align:center;
+    width: 16.66%;
+}
+             
+             
+             .tm-nav div ul li a{
+                 text-decoration: none;
+                 color: #fff;
+                 line-height: 50px; 
+                 padding: 100% 50px;
+             }
+    
+             .tm-nav div ul li a:hover{ 
+                 background-color: #777;
+             }
+
+            * {
+                box-sizing: border-box;
+              }
+              .sticky {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background-color: #555;
+                z-index:10;
+              } 

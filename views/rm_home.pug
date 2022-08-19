@@ -1,0 +1,196 @@
+doctype html
+head
+  link(href='../static/css/rm_home.css' rel='stylesheet' type='text/css')
+  link(href='../static/css/swiper.css' rel='stylesheet'  type='text/css')
+  script(src='../static/Javascript/Receptionisthomeswiper.js')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1') 
+body(onload='initClock()')
+  
+  
+  div
+    ul
+      li
+        h1.heading GRAND HOTEL
+      li(style='float:right')
+        .datetime
+          .date
+            span#dayname Day
+            |, 
+            span#month Month
+            |, 
+            span#daynum 00
+            | 
+            span#year Year
+          .time
+            span#hour 00
+            |  :
+            span#minutes 00
+            |  :
+            span#seconds 00
+            span#period AM
+  nav.tm-nav
+    #navbar.tm
+      ul
+        li.tm-list 
+          a(href='rm_home') Home
+        li.tm-list
+          a(href='rm_seat_availability') Seat Availability
+        li.tm-list
+          a(href='rm_contact_employees') Contact Staff
+        li.tm-list
+          a(href='rm_account') Account
+  .bgimg-1
+    .caption
+      span.border CAREER AS RESTAURANT MANAGER
+  div(style='color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;')
+    h3 What is Restaurant Management?
+    p(style='font: 400 15px/1.8 "Lato", sans-serif; color: #777;')
+      | The very essence of managing a restaurant is keeping day-to-day operations ticking over, which includes services such as catering or supervising any maintenance works and renovations. Another main operation involves looking over financial and accounting duties. 
+      | They include managing budgets and controlling expenditure, tracking restaurant revenues, setting sales targets and optimizing profits.
+  .bgimg-2
+    .caption
+      span.border(style='background-color:transparent;font-size:25px;color: #f7f7f7;') MEET NEW PEOPLE
+  div(style='position:relative;')
+    div(style='color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;')
+      p
+        | Not only things on ground but managers also have the duty to selecting and managing professional staff. It includes monitoring and motivating staff with constructive communication in a positive work environment and a shared vision of targets and career progression.Hotel managers are responsible for ensuring guests enjoy their stay. With this in mind, they may be tasked with several duties aimed at enhancing the guest experience and seeing to positive customer relations. These may include meeting and greeting guests with a warm welcome, being attentive to guests’ needs and wishes, taking opportunities to optimize the guest experience, Addressing complaints with a personal touch to restore customer satisfaction.
+  .bgimg-3
+    .caption
+      span.border(style='background-color:transparent;font-size:25px;color: #f7f7f7;') TANGIBLE JOB SATISFACTION
+  div(style='position:relative;')
+    div(style='color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;')
+      p
+        | Every occupation is unique, but only a few actually empower a professional to experience job satisfaction in a tangible way. While there are certainly highs and lows as a Restaurant Manager, you are being thanked daily and the gratitude of guests is explicitly directed toward your work. This feedback gives purpose to your passion and helps you be an even better Manager.
+  .bgimg-1
+    .caption
+      span.border GRAND HOTEL-THE BEST PLACE FOR YOU!
+  section.spacer
+    .testimonial-section
+      .testi-user-img
+        .swiper-container.gallery-thumbs
+          .swiper-wrapper
+            .swiper-slide
+              img.u3(src='static/images/Person1.jpg' alt='Employee')
+            .swiper-slide
+              img.u1(src='static/images/Person2.jpg' alt='Employee')
+            .swiper-slide
+              img.u2(src='static/images/Person3.jpg' alt='Employee')
+            .swiper-slide
+              img.u4(src='static/images/Person4.jpg' alt='Employee')
+      .user-saying
+        .swiper-container.testimonial
+          .swiper-wrapper
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;One of the most enriching experiences of my life.
+                  | Thank you to the staff for being so encouraging and nurturing.&ldquo;
+                .name -Rajesh Verma-
+                .designation Ex-Hotel chief Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;Staff and management are top notch.
+                  | They care about their people I had a lot of fun while doing my job.
+                  | I would gladly work there again, if I was in the area.&ldquo;
+                .name -Shefali Sharma-
+                .designation Ex-Head Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;This is best and biggest Hotel I would
+                  | have ever worked for. Top Knotch Staff and facilities,
+                  | Gained worthwhile experience&ldquo;
+                .name -Rahul Jain-
+                .designation Ex-Receptionist
+            .swiper-slide
+              .quote
+                img.quote-icon(src='static/images/quote.jpg' alt='quote')
+                p
+                  | &ldquo;Leadership team provides great support and guidance when needed,
+                  | yet lets the teams take the lead and do what they do best.
+                  | Employee programs and benefits are competitive.&ldquo;
+                .name -Tanya Shekhawat-
+                .designation Hotel Management Intern
+          .swiper-pagination.swiper-pagination-white
+// Script
+script.
+  var galleryThumbs = new Swiper('.gallery-thumbs', {
+  effect: 'coverflow',
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: '2',
+  coverflowEffect: {
+  rotate: 0,
+  stretch: 0,
+  depth: 50,
+  modifier: 6,
+  slideShadows : false,
+  },
+  });
+  var galleryTop = new Swiper('.swiper-container.testimonial', {
+  speed: 400,
+  spaceBetween: 50,
+  autoplay: {
+  delay: 3000,
+  disableOnInteraction: false,
+  },
+  direction: 'vertical',
+  pagination: {
+  clickable: true,
+  el: '.swiper-pagination',
+  type: 'bullets',
+  },
+  thumbs: {
+  swiper: galleryThumbs
+  }
+  });
+  function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  }

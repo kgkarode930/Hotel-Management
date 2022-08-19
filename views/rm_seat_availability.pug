@@ -1,0 +1,189 @@
+doctype html
+html
+  head
+    link(href='../static/css/rm_seat_availability.css' rel='stylesheet' type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body(onload='initClock()')
+    div
+      ul
+        li
+          h1.heading GRAND HOTEL
+        li(style='float:right')
+            .datetime
+                .date
+                    span#dayname Day
+                    |, 
+                    span#month Month
+                    |, 
+                    span#daynum 00
+                    | 
+                    span#year Year
+                .time
+                    span#hour 00
+                    |  :
+                    span#minutes 00
+                    |  :
+                    span#seconds 00
+                    span#period AM
+    nav.tm-nav
+        #navbar.tm
+            ul
+                li.tm-list 
+                    a(href='rm_home') Home
+                li.tm-list
+                    a(href='rm_seat_availability') Seat Availability
+                li.tm-list
+                    a(href='rm_contact_employees') Contact Staff
+                li.tm-list
+                    a(href='rm_account') Account
+
+    .seat-selection
+      ul.showcase
+        li
+          .seat
+          small Available
+        li
+          .seat.selected
+          small Selected
+        li
+          .seat.sold
+          small Sold
+      .container
+        .row
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+        .row
+          .seat
+          .seat
+          .seat
+          .seat.sold
+          .seat.sold
+          .seat
+          .seat
+          .seat
+        .row
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat.sold
+          .seat.sold
+        .row
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat
+        .row
+          .seat
+          .seat
+          .seat
+          .seat.sold
+          .seat.sold
+          .seat
+          .seat
+          .seat
+        .row
+          .seat
+          .seat
+          .seat
+          .seat
+          .seat.sold
+          .seat.sold
+          .seat.sold
+          .seat
+    // Script
+    script.
+      function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+      mo = now.getMonth(),
+      dnum = now.getDate(),
+      yr = now.getFullYear(),
+      hou = now.getHours(),
+      min = now.getMinutes(),
+      sec = now.getSeconds(),
+      pe = "AM";
+      if(hou >= 12){
+      pe = "PM";
+      }
+      if(hou == 0){
+      hou = 12;
+      }
+      if(hou > 12){
+      hou = hou - 12;
+      }
+      Number.prototype.pad = function(digits){
+      for(var n = this.toString(); n.length < digits; n = 0 + n);
+      return n;
+      }
+      var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+      var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+      var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+      for(var i = 0; i < ids.length; i++)
+      document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+      }
+      function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+      }
+      const container = document.querySelector(".container");
+      const seats = document.querySelectorAll(".row .seat:not(.sold)");
+      const count = document.getElementById("count");
+      const total = document.getElementById("total");
+      populateUI();
+      // Update total and count
+      function updateSelectedCount() {
+      const selectedSeats = document.querySelectorAll(".row .seat.selected");
+      const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+      localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
+      const selectedSeatsCount = selectedSeats.length;
+      count.innerText = selectedSeatsCount;
+      }
+      // Get data from localstorage and populate UI
+      function populateUI() {
+      const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+      if (selectedSeats !== null && selectedSeats.length > 0) {
+      seats.forEach((seat, index) => {
+      if (selectedSeats.indexOf(index) > -1) {
+      seat.classList.add("selected");
+      }
+      });
+      }
+      const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+      }
+      // Seat click event
+      container.addEventListener("click", (e) => {
+      if (
+      e.target.classList.contains("seat") &&
+      !e.target.classList.contains("sold")
+      ) {
+      e.target.classList.toggle("selected");
+      updateSelectedCount();
+      }
+      });
+      // Initial count and total set
+     updateSelectedCount();
+     window.onscroll = function() {myFunction()};
+     var navbar = document.getElementById("navbar");
+     var sticky = navbar.offsetTop;
+     function myFunction() {
+     if (window.pageYOffset >= sticky) {
+     navbar.classList.add("sticky")
+     } else {
+     navbar.classList.remove("sticky");
+     }
+     }

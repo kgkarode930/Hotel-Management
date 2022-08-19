@@ -1,0 +1,408 @@
+doctype html
+head
+  link(rel='stylesheet' type='text/css' href='../static/css/menustyle.css')
+  link(href='../static/css/Guesthome.css' rel='stylesheet' type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title GRANDEZA RESTRO
+body(onload="initClock()")
+div
+  ul
+    li
+      h1.heading GRANDEZA RESTRO
+    li(style='float:right')
+      .datetime
+        .date
+          span#dayname Day
+          | ,
+          span#month Month
+          | 
+          span#daynum 00
+          | ,
+          span#year Year
+        .time
+          span#hour 00
+          | :
+          span#minutes 00
+          | :
+          span#seconds 00
+          span#period AM
+nav.tm-nav
+    #navbar.tm
+      ul
+        li.tm-list 
+          a(href='guest_home') Home
+        li.tm-list
+          a(href='restaurant') Restaurant
+        li.tm-list
+          a(href='services_contact') Services Contact
+        li.tm-list
+          a(href='guest_account') Account
+.row
+  .column
+    img.image(src='../static/images/Starter.jpg' alt='starter')
+    a(href='#starter')
+      .middle
+        .text STARTER
+  .column
+    img.image(src='../static/images/Main Dishes.jpg' alt='Main Dishes')
+    a(href='#maindishes')
+      .middle
+        .text
+          | MAIN DISHES
+  .column
+    img.image(src='../static/images/Seafood.jpg' alt='starter' style='width:100%')
+    a(href='#seafood')
+      .middle
+        .text SEA FOOD
+.row
+  .column2
+    img.image(src='../static/images/Drinks.jpg' alt='starter' style='width:100%')
+    a(href='#drinks')
+      .middle
+        .text DRINKS
+  .column2
+    img.image(src='../static/images/Dessert.jpg' alt='Dessert')
+    a(href='#dessert')
+      .middle
+        .text DESSERT
+div(style='text-align:center')
+  h1 OUR MENU
+  h3 Genuine and Delicious
+// The Starter Section
+#starter.container
+  .row
+    .column-66
+      h1.xlarge-font
+        b Starter
+      // Item 1
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Paneer Tikka
+          .flip-box-back
+            h2 Back Side
+      // Item 2
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chilli Paneer
+          .flip-box-back
+            h2 Back Side
+      // Item 3
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Paneer Cutlet
+          .flip-box-back
+            h2 Back Side
+      // Item 4
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Paneer Sandwich
+          .flip-box-back
+            h2 Back Side
+      // Item 5
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Paneer Pakoda
+          .flip-box-back
+            h2 Back Side
+      // Item 6
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Alfredo Pasta
+          .flip-box-back
+            h2 Back Side
+    .column-33
+      img(src='static/starter_menu.png' width='335' height='471')
+// The Main Dishes Section
+#maindishes.container(style='background-color:#f1f1f1')
+  .row
+    .column-33
+      img(src='static/maindishes_menu.jpg' alt='App' width='335' height='471')
+    .column-66
+      h1.xlarge-font(style="color: black")
+        b Main Dishes
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chana Masala
+          .flip-box-back
+            h2 Back Side
+      // Item 2
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Kali Mirch Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 3
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Butter Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 4
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Lemon Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 5
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Pomfret Curry
+          .flip-box-back
+            h2 Back Side
+      // Item 6
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Losbster Curry
+          .flip-box-back
+            h2 Back Side
+// The Sea Food Section
+#seafood.container
+  .row
+    .column-66
+      h1.xlarge-font
+        b Sea Food
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chana Masala
+          .flip-box-back
+            h2 Back Side
+      // Item 2
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Kali Mirch Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 3
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Butter Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 4
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Lemon Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 5
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Pomfret Curry
+          .flip-box-back
+            h2 Back Side
+      // Item 6
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Losbster Curry
+          .flip-box-back
+            h2 Back Side
+            
+      
+// The Drinks Section
+#drinks.container(style='background-color:#f1f1f1')
+  .row
+    .column-33
+      
+    .column-66
+      h1.xlarge-font(style="color: black")
+        b Drinks
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chana Masala
+          .flip-box-back
+            h2 Back Side
+      // Item 2
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Kali Mirch Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 3
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Butter Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 4
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Lemon Chicken
+          .flip-box-back
+            h2 Back Side
+      // Item 5
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Pomfret Curry
+          .flip-box-back
+            h2 Back Side
+      // Item 6
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Losbster Curry
+          .flip-box-back
+            h2 Back Side
+      
+// The Dessert Section
+#dessert.container
+  .row
+    .column-66
+      h1.xlarge-font
+        b Dessert
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Sizzling Brownie
+          .flip-box-back
+            h2 Back Side
+      // Item 2
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chocolate Sundae
+          .flip-box-back
+            h2 Back Side
+      // Item 3
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Gulab Jamun
+          .flip-box-back
+            h2 Back Side
+      // Item 4
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Mango Moose
+          .flip-box-back
+            h2 Back Side
+      // Item 5
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Chocolate ball
+          .flip-box-back
+            h2 Back Side
+      // Item 6
+      .flip-box
+        .flip-box-inner
+          .flip-box-front
+            h2 Gajjar ka Halwa
+          .flip-box-back
+            h2 Back Side
+    .column-33
+      img(src='static/dessert_menu.jpg' width='335' height='471')
+.slideshow-container
+  h1 REVIEWS
+  .mySlides
+    h3 &#x2B50; &#x2B50; &#x2B50; &#x2B50; &#x2B50;
+    q
+      | Amazing. Food served with a beautiful combination of art and flavor
+      | Fresh ingredients. Wonderful decor with a modern-architecture touch.
+    p.author - Generous Guest
+  .mySlides
+    h3 &#x2B50; &#x2B50; &#x2B50; &#x2B50; 
+    q
+      | Beautiful atmosphere, good dishes and great location. A bit of
+      | Italy right on baltic sea.
+    p.author - Generous Guest
+  .mySlides
+    h3 &#x2B50; &#x2B50; &#x2B50; &#x2B50; &#x2B50;
+    q
+      | Enjoyed my food sitting right in my room after a tedious day amidst
+      | the mountains. Fast Delivery, warm food and great taste.
+    p.author - Generous Guest
+  a.prev(onclick='plusSlides(-1)') &#x276E;
+  a.next(onclick='plusSlides(1)') &#x276F;
+script.
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  function plusSlides(n) {
+  showSlides(slideIndex += n);
+  }
+  function currentSlide(n) {
+  showSlides(slideIndex = n);
+  }
+  function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+  slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+  dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  }
+  function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  }
